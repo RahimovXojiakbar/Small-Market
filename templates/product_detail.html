@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .product-image{
+        width: 550px;
+        height: 535px;
+    }
+</style>
+
+<div id="all">
+
+    <div id="content">
+
+
+        <div class="container">
+
+
+            <div class="col-md-12" style="margin-top: 30px;">
+                <ul class="breadcrumb">
+                    <li><a href="{% url 'shop' %}">Home</a>
+                    
+                    <li>{{product.product_base.name}} - {{product.name}}</li>
+                </ul>
+
+            </div>
+            <div class="col-md-12">
+                <div class="row" id="productMain">
+                    <div class="col-sm-6">
+                        <div id="mainImage">
+                            <img class="product-image" src="{{product.image.url}}">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="box"   style="text-align: center;">
+                            <h1 class="text-center">{{product.product_base.name}} - {{product.name}}</h1>
+                            <hr>
+                            <p class="goToDescription"><b>{{product.product_base.description}}</b></p><hr>
+                            <h3><p>Category:  <a href="#"><b>{{product.product_base.category}}</b></a></p><hr></h3>
+                            <h4><p>Brand:  <a href="#"><b>{{product.product_base.brand}}</b></a></p><hr></h4>
+                            <h5><p class="">Quantity: {{product.stock_quantity}}</p><hr></h5>
+                            <p class="price">$ {{product.price}}</p><hr>
+                            <p class="text-center buttons">
+                                <a href="{% url 'buy_now' product.uuid %}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Buy Now</a> 
+                            </p>
+
+
+                        </div>
+
+                        
+                    </div>
+
+                </div>
+
+               
+                
+               
+                
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+{% endblock content %}

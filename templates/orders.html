@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<body>
+
+
+    <div id="all">
+
+        <div id="content">
+            <div class="container">
+
+                <div class="col-md-12">
+
+                    <ul class="breadcrumb">
+                        <li><a href="{% url 'shop' %}">Home</a>
+                        </li>
+                        <li>My orders</li>
+                    </ul>
+
+                </div>
+
+                <div class="col-md-3">
+                    <div class="panel panel-default sidebar-menu">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Customer section</h3>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <ul class="nav nav-pills nav-stacked">
+                                <li class="active">
+                                    <a href="{% url 'orders' %}"><i class="fa fa-list"></i> My orders</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="{% url 'profile' %}">
+                                        <i class="fa fa-user"></i> My account
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                    <!-- *** CUSTOMER MENU END *** -->
+                </div>
+
+                <div class="col-md-9" id="customer-orders">
+                    <div class="box">
+                        <h1>My orders</h1>
+
+                       
+                        
+
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Order</th>
+                                        <th>Date</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for order in orders %}
+                                        <tr>
+                                            <th># {{ order.uuid }}</th>
+                                            
+                                            <td>{{ order.created }}</td>
+                                            <td>$ {{ order.total_amount }}</td>
+                                            <td>
+                                                <span class="label label-info">{{ order.order_status }}</span>
+                                            </td>
+                                            <td>
+                                                {% for order_item in order.items.all %}
+                                                <a href="{% url 'order_detail' order_item.uuid %}" class="btn btn-primary btn-sm">View</a>
+                                                {% endfor %}
+                                                {% if order.order_status == 'PENDING_ORDER' %}
+                                                <a href="{% url 'cancel_order' order.uuid %}" class="btn btn-danger btn-sm">Cancel</a>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container -->
+        </div>
+
+
+
+
+    </div>
+ 
+
+
+</body>
+
+</html>
+{% endblock content %}
