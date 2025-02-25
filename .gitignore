@@ -1,5 +1,7 @@
+media
 env
 db.sqlite3
 main/__pycache__
 config/__pycache__
-media
+main/migrations/**
+!main/migrations/__init__.py
