@@ -33,7 +33,7 @@ def logout_view(request):
 
 
 
-@login_required
+@login_required(login_url='login')
 def shop_view(request):
     categories = models.Category.objects.all()
     brands = models.Brand.objects.all()
