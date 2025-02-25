@@ -44,7 +44,7 @@ class OrderItemAdmin(ModelAdmin):
 class PrductBaseAdmin(ModelAdmin):
     list_display = ['uuid', 'name', 'category']
     search_fields = ['name']
-    list_filter = ['category', 'brand', 'is_featured']
+    list_filter = ['category', 'brand']
 
 
 

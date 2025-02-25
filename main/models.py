@@ -48,7 +48,6 @@ class ProductBase(BaseModel):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='product_bases')
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, blank=True, null=True, related_name='product_bases')
     is_active = models.BooleanField(default=True)
-    is_featured = models.BooleanField(default=False)
     discount_percentage = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True, validators=[MinValueValidator(0),MaxValueValidator(100)])
     updated_at = models.DateTimeField(auto_now=True)
 
