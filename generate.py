@@ -101,3 +101,13 @@ print('Add Product Variants')
 
 
 
+for _ in range(1):
+    profiles = models.CustomerProfile.objects.create(
+        user = choice(models.User.objects.all()),
+        phone_number = fake.phone_number(),
+        shipping_address = fake.address(),
+        billing_address = fake.address(),
+    )
+    profiles.save()
+models.CustomerProfile.objects.all()
+print('Add profiles')
