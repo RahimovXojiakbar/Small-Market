@@ -15,6 +15,7 @@ models.Category.objects.all().delete()
 models.Brand.objects.all().delete()
 models.ProductBase.objects.all().delete()
 models.ProductVariant.objects.all().delete()
+models.CustomerProfile.objects.all().delete()
 
 
 
@@ -68,7 +69,6 @@ for _ in range(20):
         category = choice(models.Category.objects.all()),
         brand = choice(models.Brand.objects.all()),
         is_active = fake.boolean(),
-        is_featured = fake.boolean(),
         discount_percentage = round(random.uniform(10, 90)),
         updated_at = fake.date_this_month(),
     )
