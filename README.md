@@ -29,20 +29,21 @@ Quyidagi harakatlar terminal (bash) da amalga oshirilsin
    ```bash
    pip install -r requirements.txt
 
-7. migrations papkasini yarating:
+6. migrations papkasini yarating:
    ```bash
    py manage.py makemigrations
-8. Ma'lumotlar bazasiga kerakli jadvallarni yarating:
+
+7. Ma'lumotlar bazasiga kerakli jadvallarni yarating:
     ```bash
      py manage.py migrate
-
-6. Ma'lumotlar Bazasiga malumotlarni yarating:
-   ```bash
-   py generate.py
    
-9. Adminkaga kirish uchun superuser yarating:
+8. Super foydalanuvchi yarating:
    ```bash
    py manage.py createsuperuser
+
+9. Ma'lumotlar Bazasiga malumotlarni yarating:
+   ```bash
+   py generate.py
 
 10. Ishga tushiring
     ```bash
